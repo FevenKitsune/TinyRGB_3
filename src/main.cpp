@@ -15,6 +15,7 @@ int main(void)
   SetPinOutputs();
   ConfigureTimers();
   SetRGBRegisters(1, 1, 1);
+  animation_mode = 0; // TODO: Animation mode switching.
   while (1)
   {
     switch (animation_mode) {
