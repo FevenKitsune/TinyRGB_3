@@ -6,33 +6,21 @@
  */
 
 #include "tinyrgb.h"
+#include "loops.h"
 #include <util/delay.h>
 
 int main(void)
 {
+  uint8_t animation_mode;
   SetPinOutputs();
   ConfigureTimers();
   SetRGBRegisters(1, 1, 1);
   while (1)
   {
-    _delay_ms(16); // Approx 60hz
-
-    /*
-     * Sweep R UP
-     */
-    while (GetR() < 255)
-    {
-      SetR(GetR() + 1);
-      _delay_ms(16);
-    }
-
-    /*
-     * Sweep R Down
-     */
-    while (GetR() > 0)
-    {
-      SetR(GetR() - 1);
-      _delay_ms(16);
+    switch (animation_mode) {
+      case 0:
+        RGSweep();
+        break;
     }
   }
 }

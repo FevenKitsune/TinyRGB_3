@@ -7,6 +7,10 @@
 
 #include "loops.h"
 
+/*
+ * SWEEP_ID = 0
+ * Christmas!
+ */
 void RGSweep()
 {
     _delay_ms(16); // Approx 60hz
