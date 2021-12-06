@@ -13,6 +13,7 @@
  */
 void RGSweep()
 {
+    // TODO: Logarithmic dimming curve function!
     _delay_ms(16); // Approx 60hz
 
     /*
