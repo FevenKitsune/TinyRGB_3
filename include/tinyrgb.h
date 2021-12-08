@@ -10,6 +10,11 @@
 
 #include <avr/io.h>
 #include <avr/sfr_defs.h>
+#include "logmapper.h"
+
+uint8_t raw_R;
+uint8_t raw_G;
+uint8_t raw_B;
 
 void ConfigureTimers();
 void SetPinOutputs();
@@ -20,5 +25,8 @@ void SetB(uint8_t B);
 uint8_t GetR();
 uint8_t GetG();
 uint8_t GetB();
+uint8_t GetRawR();
+uint8_t GetRawG();
+uint8_t GetRawB();
 
 #endif

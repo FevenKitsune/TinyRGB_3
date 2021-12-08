@@ -35,19 +35,22 @@ void SetRGBRegisters(uint8_t R, uint8_t G, uint8_t B)
 
 void SetR(uint8_t R)
 {
-    OCR0A = R;
+    raw_R = R;
+    OCR0A = MapToLogarithmic(R);
     return;
 }
 
 void SetG(uint8_t G)
 {
-    OCR0B = G;
+    raw_G = G;
+    OCR0B = MapToLogarithmic(G);
     return;
 }
 
 void SetB(uint8_t B)
 {
-    OCR1B = B;
+    raw_B = B;
+    OCR1B = MapToLogarithmic(B);
     return;
 }
 
@@ -64,4 +67,19 @@ uint8_t GetG()
 uint8_t GetB()
 {
     return OCR1B;
+}
+
+uint8_t GetRawR()
+{
+    return raw_R;
+}
+
+uint8_t GetRawG()
+{
+    return raw_G;
+}
+
+uint8_t GetRawB()
+{
+    return raw_B;
 }

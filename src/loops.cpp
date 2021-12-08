@@ -19,36 +19,36 @@ void RGSweep()
     /*
      * Sweep R UP
      */
-    while (GetR() < 255)
+    while (GetRawR() < 255)
     {
-        SetR(GetR() + 1);
+        SetR(GetRawR() + 1);
         _delay_ms(16);
     }
 
     /*
      * Sweep R Down
      */
-    while (GetR() > 0)
+    while (GetRawR() > 0)
     {
-        SetR(GetR() - 1);
+        SetR(GetRawR() - 1);
         _delay_ms(16);
     }
 
     /*
      * Sweep G UP
      */
-    while (GetG() < 255)
+    while (GetRawG() < 255)
     {
-        SetG(GetG() + 1);
+        SetG(GetRawG() + 1);
         _delay_ms(16);
     }
 
     /*
      * Sweep G Down
      */
-    while (GetG() > 0)
+    while (GetRawG() > 0)
     {
-        SetG(GetG() - 1);
+        SetG(GetRawG() - 1);
         _delay_ms(16);
     }
 }
