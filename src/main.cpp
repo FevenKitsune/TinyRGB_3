@@ -1,5 +1,7 @@
 /*
- * Tiny_RGB.cpp
+ * TinyRGB_3
+ * ATTiny RGB PWM controller.
+ * main.cpp
  *
  * Created: 9/11/2021 9:36:38 PM
  * Author : feven
