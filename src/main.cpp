@@ -28,22 +28,24 @@ int main(void)
   sei();
   while (1)
   {
-    switch (animation_mode) {
-      case 0:
-        RGSweep();
-        break;
-      case 1:
-        RGBlink();
-        break;
+    switch (animation_mode)
+    {
+    case 0:
+      RGSweep();
+      break;
+    case 1:
+      RGBlink();
+      break;
     }
   }
 }
 
 ISR(INT0_vect)
 {
+  _delay_ms(10); // Debounce delay
   SetRGBRegisters(0, 0, 0);
   animation_mode++;
-  if (animation_mode == ANIMATION_COUNT)
+  if (animation_mode >= ANIMATION_COUNT)
   {
     animation_mode = 0;
   }
