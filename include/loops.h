@@ -12,5 +12,6 @@
 #include <util/delay.h>
 
 void RGSweep();
+void RGBlink();
 
 #endif

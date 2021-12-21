@@ -13,8 +13,7 @@
  */
 void RGSweep()
 {
-    // TODO: Logarithmic dimming curve function!
-    _delay_ms(16); // Approx 60hz
+    _delay_ms(8); // Approx 120hz
 
     /*
      * Sweep R UP
@@ -22,7 +21,7 @@ void RGSweep()
     while (GetRawR() < 255)
     {
         SetR(GetRawR() + 1);
-        _delay_ms(16);
+        _delay_ms(8);
     }
 
     /*
@@ -31,7 +30,7 @@ void RGSweep()
     while (GetRawR() > 0)
     {
         SetR(GetRawR() - 1);
-        _delay_ms(16);
+        _delay_ms(8);
     }
 
     /*
@@ -40,7 +39,7 @@ void RGSweep()
     while (GetRawG() < 255)
     {
         SetG(GetRawG() + 1);
-        _delay_ms(16);
+        _delay_ms(8);
     }
 
     /*
@@ -49,6 +48,20 @@ void RGSweep()
     while (GetRawG() > 0)
     {
         SetG(GetRawG() - 1);
-        _delay_ms(16);
+        _delay_ms(8);
     }
+}
+
+/*
+ * SWEEP_ID = 1
+ * RGBlink
+ */
+void RGBlink()
+{
+    _delay_ms(2000);
+    SetR(255);
+    SetG(0);
+    _delay_ms(2000);
+    SetR(0);
+    SetG(255);
 }

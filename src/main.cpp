@@ -10,20 +10,41 @@
 #include "tinyrgb.h"
 #include "loops.h"
 #include <util/delay.h>
+#include <avr/interrupt.h>
+
+#define ANIMATION_COUNT 2
+volatile uint8_t animation_mode = 0;
 
 int main(void)
 {
-  uint8_t animation_mode;
   SetPinOutputs();
   ConfigureTimers();
-  SetRGBRegisters(1, 1, 1);
-  animation_mode = 0; // TODO: Animation mode switching.
+  SetRGBRegisters(0, 0, 0);
+  DDRB &= ~_BV(DDB2);
+  PORTB &= ~_BV(PORTB2);
+  MCUCR &= ~_BV(ISC00);
+  MCUCR |= _BV(ISC01);
+  GIMSK |= _BV(INT0);
+  sei();
   while (1)
   {
     switch (animation_mode) {
       case 0:
         RGSweep();
         break;
+      case 1:
+        RGBlink();
+        break;
     }
+  }
+}
+
+ISR(INT0_vect)
+{
+  SetRGBRegisters(0, 0, 0);
+  animation_mode++;
+  if (animation_mode == ANIMATION_COUNT)
+  {
+    animation_mode = 0;
   }
 }
