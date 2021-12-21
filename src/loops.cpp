@@ -3,7 +3,7 @@
  *
  * Created: 12/06/2021 1:54:00 AM
  * Author : feven
- */ 
+ */
 
 #include "loops.h"
 
@@ -64,4 +64,21 @@ void RGBlink()
     _delay_ms(2000);
     SetR(0);
     SetG(255);
+}
+
+/*
+ * SWEEP_ID = 2
+ * ColorBlend
+ */
+void ColorBlend()
+{
+    for (uint16_t i = 0; i <= 360; i++)
+    {
+        HSL value;
+        value.H = i;
+        value.S = 100;
+        value.L = 50;
+        SetRGBRegisters(HSLToRGB(value));
+        _delay_ms(16);
+    }
 }
