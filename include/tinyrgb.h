@@ -12,10 +12,6 @@
 #include <avr/sfr_defs.h>
 #include "logmapper.h"
 
-uint8_t raw_R;
-uint8_t raw_G;
-uint8_t raw_B;
-
 void ConfigureTimers();
 void SetPinOutputs();
 void SetRGBRegisters(uint8_t R, uint8_t G, uint8_t B);

@@ -7,6 +7,10 @@
 
 #include "tinyrgb.h"
 
+uint8_t raw_R;
+uint8_t raw_G;
+uint8_t raw_B;
+
 void ConfigureTimers()
 {
     TCCR0A |= _BV(COM0A1);             // Connect OC0A
