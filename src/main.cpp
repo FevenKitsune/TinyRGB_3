@@ -12,8 +12,8 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-#define ANIMATION_COUNT 2
-volatile uint8_t animation_mode = 0;
+#define ANIMATION_COUNT 3
+volatile uint8_t animation_mode = 2;
 
 int main(void)
 {
@@ -36,13 +36,16 @@ int main(void)
     case 1:
       RGBlink();
       break;
+    case 2:
+      ColorBlend();
+      break;
     }
   }
 }
 
 ISR(INT0_vect)
 {
-  _delay_ms(10); // Debounce delay
+  _delay_ms(100); // Debounce delay
   SetRGBRegisters(0, 0, 0);
   animation_mode++;
   if (animation_mode >= ANIMATION_COUNT)
