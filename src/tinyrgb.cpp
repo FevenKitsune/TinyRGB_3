@@ -37,6 +37,14 @@ void SetRGBRegisters(uint8_t R, uint8_t G, uint8_t B)
     return;
 }
 
+void SetRGBRegisters(RGB rgb)
+{
+    SetR(rgb.R);
+    SetG(rgb.G);
+    SetB(rgb.B);
+    return;
+}
+
 void SetR(uint8_t R)
 {
     raw_R = R;
