@@ -28,7 +28,7 @@ int main(void)
   sei();
   while (1)
   {
-    switch (animation_mode)
+    switch (animation_mode) // TODO: Animation only switches once full animation has finished. Make it change instantly.
     {
     case 0:
       RGSweep();
