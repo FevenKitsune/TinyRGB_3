@@ -7,6 +7,7 @@
 
 #include "logmapper.h"
 
-uint8_t MapToLogarithmic(uint8_t input) {
+uint8_t MapToLogarithmic(uint8_t input)
+{
     return pgm_read_byte(&log_lut[input]);
 }
